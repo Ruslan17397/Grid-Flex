@@ -1,0 +1,93 @@
+//out: ../css/grid.css
+@keyframes "FadeIn" {
+	0% {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+&:root {
+	--animate-duration: 1s;
+	--animate-delay: 1s;
+	--animate-repeat: 1;
+	--width: 130px;
+	--bgcolor: #242932;
+}
+div[class^='col'] {
+	-webkit-animation-name: FadeIn;
+	animation-name: FadeIn;
+	-webkit-animation-duration: var(--animate-duration);
+	animation-duration: var(--animate-duration);
+	-webkit-animation-fill-mode: both;
+	animation-fill-mode: both;
+	-webkit-animation-delay: calc(var(--i) * 0.8);
+	animation-delay: calc(var(--i) * 0.8);
+}
+p {
+	color: white;
+	font-size: 19px;
+}
+h1 {
+	color: white;
+	margin: 30px 0;
+	font-family: Arial,sans-serif;
+}
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	background-color: var(--bgColor);
+	counter-reset: nm;
+}
+.row2 {
+	display: grid;
+	grid-template-columns: repeat(4, var(--width));
+	column-gap: 5px;
+	&:first-child {
+		grid-template-columns: repeat(3, var(--width));
+		padding-left: calc(var(--width) / 2);
+	}
+	&:last-child {
+		grid-template-columns: repeat(3, var(--width));
+		padding-left: calc(var(--width) / 2);
+	}
+    & .col2 {
+	position: relative;
+	height: var(--width);
+	width: var(--width);
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 5px;
+	font-family: sans-serif;
+	color: orange;
+	margin-top: 5px;
+	box-shadow: 0 0 4px black;
+	overflow: hidden;
+	&:before {
+		transition: all 1s;
+		counter-increment: nm;
+		content: counter(nm);
+		font-size: 3.3em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('../images/bg.jpg');
+		background-size: cover;
+		z-index: -1;
+	}
+	&:hover {
+		color: rgba(255, 255, 255, 0.7);
+		&:before {
+			transform: rotate(30deg) scale(2);
+			filter: blur(3px);
+			background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/bg.jpg');
+		}
+	}
+}
+}
