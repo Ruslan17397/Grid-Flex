@@ -1,7 +1,4 @@
 ```diff
-- text in red
-+ text in green
-! text in orange
-# text in gray
-@@ text in purple (and bold)@@
++ Second homework FLEX/GRID
+! All project: (https://github.com/Ruslan17397?tab=repositories)
 ```
